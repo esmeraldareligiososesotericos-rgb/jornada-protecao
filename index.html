@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jornada de Proteção — Loja Esmeralda</title>
+<meta name="description" content="Aula completa e material de apoio do Kit Jornada de Proteção, Loja Esmeralda.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='12' fill='%23a9791f'/%3E%3Ccircle cx='10' cy='16' r='12' fill='%23f3f0e1'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,470;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600;700&display=swap">
+<style>
+  :root{
+    color-scheme: light;
+    --paper: #f3f0e1;
+    --paper-soft: #ece6d2;
+    --ink: #201f16;
+    --ink-soft: #55523f;
+    --forest: #1f5014;
+    --forest-deep: #16390e;
+    --gold: #a9791f;
+    --gold-soft: #cba54a;
+    --wine: #7a2334;
+    --line: rgba(32,31,22,0.14);
+    --radius: 3px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper: #171a12;
+      --paper-soft: #1e2217;
+      --ink: #ece7d6;
+      --ink-soft: #a8a68f;
+      --forest: #7cb95a;
+      --forest-deep: #a9d886;
+      --gold: #d3ab5c;
+      --gold-soft: #e6c37e;
+      --wine: #e08b9c;
+      --line: rgba(236,231,214,0.16);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper: #171a12;
+    --paper-soft: #1e2217;
+    --ink: #ece7d6;
+    --ink-soft: #a8a68f;
+    --forest: #7cb95a;
+    --forest-deep: #a9d886;
+    --gold: #d3ab5c;
+    --gold-soft: #e6c37e;
+    --wine: #e08b9c;
+    --line: rgba(236,231,214,0.16);
+  }
+
+  *{ box-sizing: border-box; }
+  html,body{ margin:0; }
+  body{
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Work Sans", ui-sans-serif, system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+  }
+  img{ max-width:100%; }
+  [hidden]{ display:none!important; }
+  ::selection{ background: #6e0303; color: #f3f0e1; }
+
+  .sheet{
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 4rem 1.75rem 6rem;
+  }
+
+  h1,h2,h3{
+    font-family: "Fraunces", Georgia, serif;
+    color: var(--forest-deep);
+    font-weight: 600;
+    text-wrap: balance;
+    margin: 0;
+  }
+
+  .eyebrow{
+    font-family: "Work Sans", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  header.masthead{
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--line);
+  }
+  header.masthead h1{
+    font-size: clamp(2.2rem, 5vw, 3.1rem);
+    font-style: italic;
+    font-optical-sizing: auto;
+    margin-top: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+  }
+  header.masthead .lede{
+    margin-top: 1rem;
+    max-width: 48ch;
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+  }
+
+  .moon{ flex: none; display:block; }
+
+  /* watch card */
+  .watch-card{
+    margin-top: 2rem;
+    background: var(--forest-deep);
+    border-radius: 6px;
+    padding: 1.75rem;
+  }
+  .watch-card .info .eyebrow{ color: #6e0303; }
+  .watch-card .info h2{
+    color: #000;
+    font-size: 1.4rem;
+    margin-top: 0.35rem;
+  }
+  .watch-card .info p{
+    margin: 0.5rem 0 0;
+    color: rgba(0,0,0,0.72);
+    font-size: 0.9rem;
+    max-width: 46ch;
+  }
+  .video-frame{
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 1.25rem;
+    background: #000;
+  }
+  .video-frame iframe{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  .watch-fallback{
+    display: inline-block;
+    margin-top: 0.9rem;
+    color: #6e0303;
+    background: transparent;
+    font-size: 0.82rem;
+    text-decoration: underline;
+  }
+
+  nav.toc{
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.65rem;
+  }
+  @media (max-width: 680px){ nav.toc{ grid-template-columns: repeat(2, 1fr); } }
+  nav.toc a{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 0.65rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 0.78rem;
+    font-weight: 500;
+    background: var(--paper-soft);
+  }
+  nav.toc a span.roman{
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    color: var(--gold);
+    font-size: 0.88rem;
+  }
+
+  section{
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  section:last-of-type{ border-bottom: none; }
+
+  section > .eyebrow{ display:block; margin-bottom: 0.5rem; }
+  section h2{ font-size: 1.65rem; }
+  section .intro{
+    margin-top: 0.9rem;
+    max-width: 58ch;
+    color: var(--ink-soft);
+  }
+
+  .trio{
+    margin-top: 1.75rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+  @media (max-width: 620px){ .trio{ grid-template-columns: 1fr; } }
+  .trio div{
+    padding: 1.1rem 1.15rem;
+    background: var(--paper-soft);
+    border-radius: var(--radius);
+    border-top: 2px solid var(--gold);
+  }
+  .trio div .num{
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    color: var(--gold);
+    font-size: 0.85rem;
+  }
+  .trio div p{ margin: 0.4rem 0 0; font-size: 0.9rem; color: var(--ink); }
+
+  .callout{
+    margin-top: 1.5rem;
+    padding: 1rem 1.25rem;
+    border-left: 2px solid var(--forest);
+    background: var(--paper-soft);
+    font-size: 0.92rem;
+    color: var(--ink);
+    font-style: italic;
+    font-family: "Fraunces", serif;
+    font-weight: 500;
+  }
+
+  .kit-grid{
+    margin-top: 1.75rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  @media (max-width: 620px){ .kit-grid{ grid-template-columns: 1fr; } }
+  .kit-item{
+    background: var(--paper);
+    padding: 0.95rem 1.15rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+  }
+  .kit-item .n{
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    color: var(--gold);
+    font-size: 0.85rem;
+    flex: none;
+    width: 1.4rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .kit-item .name{ font-weight: 500; font-size: 0.94rem; }
+  .kit-item .qty{ display:block; color: var(--ink-soft); font-size: 0.82rem; margin-top: 0.15rem; }
+  .kit-item.special .name{ color: var(--forest); }
+
+  .pillar{
+    margin-top: 2.25rem;
+    padding-top: 2.25rem;
+    border-top: 1px dashed var(--line);
+  }
+  .pillar:first-of-type{ margin-top: 1.75rem; padding-top: 1.75rem; }
+  .pillar-head{
+    display: flex;
+    align-items: baseline;
+    gap: 0.85rem;
+  }
+  .pillar-head .roman{
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    color: var(--gold);
+    font-size: 1rem;
+    flex: none;
+    align-self: center;
+  }
+  .pillar-head h3{
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 1.28rem;
+    color: var(--forest-deep);
+  }
+  .pillar .thesis{
+    margin: 0.65rem 0 0 2.7rem;
+    color: var(--ink-soft);
+    font-size: 0.96rem;
+    max-width: 54ch;
+  }
+  .pillar .actions{
+    margin: 1.1rem 0 0 2.7rem;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  .pillar .actions li{
+    position: relative;
+    padding-left: 1.1rem;
+    font-size: 0.93rem;
+  }
+  .pillar .actions li::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--gold-soft);
+  }
+
+  .invocation{
+    margin: 1rem 0 0 2.7rem;
+    padding: 0.9rem 1.1rem;
+    border-left: 2px solid var(--wine);
+    background: var(--paper-soft);
+  }
+  .invocation .herb{
+    display: block;
+    font-family: "Work Sans", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--wine);
+    margin-bottom: 0.4rem;
+  }
+  .invocation p{
+    margin: 0;
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 0.94rem;
+    color: var(--ink);
+    line-height: 1.55;
+  }
+
+  .safety{
+    margin: 1rem 0 0 2.7rem;
+    padding: 0.85rem 1.05rem;
+    border-radius: var(--radius);
+    background: var(--paper-soft);
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+  .safety strong{ color: var(--ink); }
+
+  ul.reflect{
+    margin: 1.5rem 0 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  ul.reflect li{
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.98rem;
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    color: var(--forest-deep);
+  }
+  ul.reflect li:last-child{ border-bottom: none; }
+
+  footer{
+    margin-top: 3rem;
+    padding-top: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--ink-soft);
+    font-size: 0.85rem;
+    font-style: italic;
+    font-family: "Fraunces", serif;
+  }
+  .foot-note{
+    margin-top: 2.5rem;
+    padding: 1rem 1.15rem;
+    background: var(--paper-soft);
+    border-radius: var(--radius);
+    font-size: 0.83rem;
+    color: var(--ink-soft);
+    font-style: normal;
+    font-family: "Work Sans", sans-serif;
+  }
+  .foot-note strong{ color: var(--ink); font-style: normal; }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <header class="masthead">
+    <span class="eyebrow">Loja Esmeralda · Sua aula</span>
+    <h1>
+      <svg class="moon" width="36" height="36" viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="16" cy="16" r="12" fill="none" stroke="var(--gold-soft)" stroke-width="1"/>
+        <circle cx="16" cy="16" r="12" fill="var(--gold)"/>
+        <circle cx="10" cy="16" r="12" fill="var(--paper)"/>
+      </svg>
+      Jornada de Proteção
+    </h1>
+    <p class="lede">Sua jornada de limpeza, bênção e proteção — guiada por mim, do início ao fim. Este é o seu espaço para assistir a aula quando quiser e consultar cada etapa depois, sem precisar reassistir tudo.</p>
+
+    <div class="watch-card">
+      <div class="info">
+        <span class="eyebrow">Aula completa</span>
+        <h2>Assista quando quiser</h2>
+        <p>Acesso vitalício — volte aqui quantas vezes precisar, antes, durante ou muito depois da sua jornada.</p>
+      </div>
+      <div class="video-frame">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/D3TUvhyHPxU"
+          title="Aula — Jornada de Proteção"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+      <a class="watch-fallback" href="https://www.youtube.com/watch?v=D3TUvhyHPxU" target="_blank" rel="noopener">O vídeo não carregou? Assistir no YouTube ↗</a>
+    </div>
+
+    <nav class="toc">
+      <a href="#antes"><span class="roman">I</span> Antes de começar</a>
+      <a href="#kit"><span class="roman">II</span> Seu kit</a>
+      <a href="#roteiro"><span class="roman">III</span> O roteiro</a>
+      <a href="#dias"><span class="roman">IV</span> Os 6 dias</a>
+      <a href="#renovacao"><span class="roman">V</span> 7º dia e renovação</a>
+    </nav>
+  </header>
+
+  <section id="antes">
+    <span class="eyebrow">Antes de começar</span>
+    <h2>Como aproveitar sua aula</h2>
+    <p class="intro">Esta jornada não é sobre ser uma pessoa perfeita, estar sempre bem ou nunca passar por momentos difíceis. Momentos difíceis fazem parte da vida — o que muda é a forma como escolhemos lidar com eles. Ela foi criada para te ajudar a cuidar da sua espiritualidade com autonomia, presença e constância. Você não precisa fazer tudo de forma automática: cada etapa foi pensada para que você participe conscientemente do processo.</p>
+
+    <div class="trio">
+      <div><span class="num">1ª vez</span><p>Apenas acompanhe e entenda o processo, do início ao fim.</p></div>
+      <div><span class="num">2ª vez</span><p>Volte aos pontos que ficaram com alguma dúvida.</p></div>
+      <div><span class="num">3ª vez</span><p>Realize a jornada acompanhando a aula em tempo real.</p></div>
+    </div>
+
+    <p class="callout">Não tenha pressa. Se precisar pausar, pause. Se precisar voltar, volte.</p>
+  </section>
+
+  <section id="kit">
+    <span class="eyebrow">Seu kit</span>
+    <h2>O que vem na sua caixa</h2>
+    <p class="intro">Cada item foi pensado item por item para funcionar em sequência ao longo da sua jornada — não é um conjunto solto de produtos.</p>
+
+    <div class="kit-grid">
+      <div class="kit-item"><span class="n">01</span><span><span class="name">Alfazema Elegância</span><span class="qty">250 ml</span></span></div>
+      <div class="kit-item"><span class="n">02</span><span><span class="name">Vela Palito Branca</span><span class="qty">7 unidades</span></span></div>
+      <div class="kit-item"><span class="n">03</span><span><span class="name">Turíbulo P</span><span class="qty">1 unidade</span></span></div>
+      <div class="kit-item"><span class="n">04</span><span><span class="name">Carvão em disco</span><span class="qty">para a defumação</span></span></div>
+      <div class="kit-item"><span class="n">05</span><span><span class="name">Anil (Waje/Oaji)</span><span class="qty">30 g</span></span></div>
+      <div class="kit-item"><span class="n">06</span><span><span class="name">Mamona</span><span class="qty">erva desidratada, 15 g</span></span></div>
+      <div class="kit-item"><span class="n">07</span><span><span class="name">Boldo</span><span class="qty">erva desidratada, 15 g</span></span></div>
+      <div class="kit-item"><span class="n">08</span><span><span class="name">Colônia</span><span class="qty">erva desidratada, 15 g</span></span></div>
+      <div class="kit-item special"><span class="n">09</span><span><span class="name">Pó de Égide</span><span class="qty">100 g · receita autoral Esmeralda</span></span></div>
+      <div class="kit-item special"><span class="n">10</span><span><span class="name">Santa Benção</span><span class="qty">defumação autoral completa</span></span></div>
+      <div class="kit-item"><span class="n">11</span><span><span class="name">Copo / suporte para vela</span><span class="qty">1 unidade</span></span></div>
+      <div class="kit-item"><span class="n">12</span><span><span class="name">Kit de 3 cristais de proteção</span><span class="qty">cianita, ônix e obsidiana</span></span></div>
+    </div>
+  </section>
+
+  <section id="roteiro">
+    <span class="eyebrow">Sua jornada, passo a passo</span>
+    <h2>O roteiro completo</h2>
+    <p class="intro">Assista a aula pra ver cada gesto em detalhe — aqui fica o resumo escrito e as palavras de cada etapa, pra você consultar sem precisar voltar o vídeo.</p>
+
+    <div class="pillar" id="conexao">
+      <div class="pillar-head">
+        <span class="roman">I</span>
+        <h3>Conexão — prepare o ambiente e o corpo</h3>
+      </div>
+      <p class="thesis">Antes de qualquer procedimento espiritual, cuidamos do espaço físico. Pense que você está preparando sua casa para receber alguém que preza muito.</p>
+      <ul class="actions">
+        <li>Organize a casa, tire o pó, varra, limpe os cantos — não precisa ser um faxinão, só o essencial.</li>
+        <li>Firme a primeira das sete velas num local seguro, longe de cortinas, papéis e correntes de ar. Ao acender, faça seus pedidos de firmeza, limpeza, bênção, proteção, clareza e paz.</li>
+        <li>Prepare o banho de ervas: ferva ~1 litro de água, desligue o fogo e acrescente as ervas na ordem abaixo, com intenção.</li>
+      </ul>
+      <div class="invocation">
+        <span class="herb">Mamona</span>
+        <p>"Salve sua força sagrada Mamona. Que sua força esteja desperta e ativa! Que sua energia limpe profundamente meu espírito, afastando influências espirituais negativas do meu espírito, sejam elas pensadas ou mandadas contra mim ou atraídas por mim. Livre do meu espírito toda energia negativa que esteja se aproveitando da minha energia. Desde já agradeço pela honra de receber a sua força. Salve a desperta e sagrada Mamona."</p>
+      </div>
+      <div class="invocation">
+        <span class="herb">Boldo</span>
+        <p>"Salve sua força Sagrado Boldo. Que sua força esteja desperta e ativa! Que sua energia traga a paz para meu espírito, corpo e mente. Que sua força aumente a minha vibração, acalme minhas angústias, e traga a tranquilidade para mim por completo. Desde já agradeço pela honra de receber a sua força. Salve o desperto e sagrado Boldo."</p>
+      </div>
+      <div class="invocation">
+        <span class="herb">Colônia</span>
+        <p>"Salve sua força sagrada Colônia, que sua força esteja desperta e ativa! Que a senhora sagrada Colônia equilibre minhas energias, harmonize meus chakras e pontos energéticos e me traga clareza diante a vida! Me proteja com sua luz, proteja meu campo espiritual contra toda energia negativa e mantenha em equilíbrio. Desde já agradeço pela honra de receber a sua força. Salve a desperta e sagrada Colônia."</p>
+      </div>
+      <p class="thesis" style="margin-top:1rem">Depois de adicionar todas as ervas, feche com uma oração de sua preferência.</p>
+    </div>
+
+    <div class="pillar" id="limpeza">
+      <div class="pillar-head">
+        <span class="roman">II</span>
+        <h3>Limpeza — Anil e defumação</h3>
+      </div>
+      <p class="thesis">Agora começa a limpeza propriamente dita: retirar o que não serve mais, da parte mais profunda da casa em direção à saída.</p>
+      <ul class="actions">
+        <li>Num balde com ⅔ de água, acrescente Anil até obter cor forte e visível. Mexa no sentido horário com a mão dominante.</li>
+        <li>Passe o pano cômodo por cômodo, sempre de dentro para fora — lave o pano em água corrente entre um ambiente e outro, nunca devolva sujo ao balde. Ao terminar, descarte na calçada da esquerda para a direita.</li>
+        <li>Acenda o carvão, coloque no turíbulo com um pouco de Santa Benção e defume os ambientes — portas e janelas abertas, crianças e animais fora do espaço. Faça um movimento em X em cada cômodo.</li>
+      </ul>
+      <div class="invocation">
+        <span class="herb">Anil</span>
+        <p>"Salve sua força sagrado Anil. Que sua força esteja desperta e ativa! Que sua energia limpe profundamente a minha casa [ou comércio], afastando influências espirituais negativas de cada canto, de cada cômodo, sejam elas pensadas, mandadas contra mim ou atraídas por mim. Livre minha casa de toda energia negativa que esteja me deixando em baixa vibração, perturbada ou me fazendo mal. Desde já agradeço pela honra de receber a sua força. Salve o desperto e sagrado Anil."</p>
+      </div>
+    </div>
+
+    <div class="pillar" id="bencao">
+      <div class="pillar-head">
+        <span class="roman">III</span>
+        <h3>Bênção — Alfazema e cristais</h3>
+      </div>
+      <p class="thesis">Depois de retirar o que queríamos limpar, chegou a hora de escolher o que queremos cultivar — agora caminhando da porta de entrada em direção ao interior da casa.</p>
+      <ul class="actions">
+        <li>Molhe levemente as pontas dos dedos na Alfazema e espalhe suavemente pelos cantos dos cômodos, determinando harmonia, paz, tranquilidade e proteção. Dê atenção especial ao quarto e à cama.</li>
+        <li>Seus três cristais recebem a fumaça da defumação e, na bênção, a intenção da Alfazema. Depois, podem acompanhar você no dia a dia — na bolsa, no bolso ou no carro.</li>
+      </ul>
+    </div>
+
+    <div class="pillar" id="protecao">
+      <div class="pillar-head">
+        <span class="roman">IV</span>
+        <h3>Proteção — Pó de Égide</h3>
+      </div>
+      <p class="thesis">Depois de limpar e abençoar, é hora de estabelecer limites. A limpeza abriu espaço, a bênção escolheu o que cultivar — agora a proteção delimita.</p>
+      <ul class="actions">
+        <li>Vá até a entrada da casa e, com o Pó de Égide, faça uma linha da esquerda para a direita — não precisa ser perfeita nem farta.</li>
+        <li>Ao aplicar, determine que aquele espaço está protegido e que energias negativas não são aceitas ali. Se tiver capacho, uma pequena quantidade também pode ir por baixo dele.</li>
+      </ul>
+    </div>
+
+    <div class="pillar" id="equilibrio">
+      <div class="pillar-head">
+        <span class="roman">V</span>
+        <h3>Equilíbrio — banho pessoal</h3>
+      </div>
+      <p class="thesis">Depois de terminar a casa, a atenção volta para você.</p>
+      <ul class="actions">
+        <li>Coe o banho de ervas. Tome seu banho de higiene normalmente e, em seguida, use o banho de ervas — despejando do pescoço para baixo, da direita para a esquerda.</li>
+        <li>Retome mentalmente as intenções: Mamona para limpeza, Boldo para paz e tranquilidade, Colônia para equilíbrio e clareza.</li>
+        <li>Depois, sem pressa: vista roupas claras, fique em casa, coma algo que goste, descanse. As ervas usadas podem voltar à terra ou ser descartadas normalmente.</li>
+      </ul>
+      <div class="safety"><strong>Antes de usar:</strong> o banho é uma prática ritualística e não substitui cuidados de saúde. Evite contato com olhos, mucosas e pele lesionada; se houver irritação, interrompa e enxágue. Tendo sensibilidade conhecida às plantas, não aplique diretamente sobre a pele sem orientação adequada.</div>
+    </div>
+  </section>
+
+  <section id="dias">
+    <span class="eyebrow">Manutenção</span>
+    <h2>Os próximos 6 dias</h2>
+    <p class="intro">A jornada principal termina no banho — mas o cuidado continua. Você recebeu sete velas porque a proposta é sustentar aquilo que foi construído.</p>
+    <ul class="actions" style="margin-left:0">
+      <li>Durante os seis dias seguintes, acenda uma vela por dia em local seguro e retome seus pedidos de limpeza, proteção, clareza, paz, tranquilidade e harmonia.</li>
+      <li>Use a Alfazema para abençoar novamente a casa e em você — mãos, nuca, testa, pés e umbigo, sempre dentro da sua tolerância à pele.</li>
+    </ul>
+    <div class="invocation" style="margin-left:0">
+      <span class="herb">Afirmação diária</span>
+      <p>"Eu, [seu nome], com a força e luz de [divindade da sua fé], me abençoo com paz, tranquilidade e harmonia. Eu estou limpa de toda energia negativa. Eu estou limpa de toda influência negativa. Eu sou abençoada com proteção divina. Meu campo espiritual é forte, iluminado e abençoado de luz, paz e harmonia. Eu tenho clareza para enxergar meu caminho. Eu tenho clareza para tomar as decisões que favorecem a minha vida. Eu tenho paz, saúde e proteção."</p>
+    </div>
+    <p class="callout">Você não precisa repetir a jornada inteira nesses seis dias. O objetivo é manter, não começar tudo novamente.</p>
+  </section>
+
+  <section id="renovacao">
+    <span class="eyebrow">Uma pausa para olhar pra trás</span>
+    <h2>O 7º dia — sua caminhada</h2>
+    <p class="intro">Antes de simplesmente encerrar e seguir para a próxima coisa, pare alguns minutos. Não procure respostas perfeitas — esse momento existe para observar e reconhecer a própria caminhada.</p>
+    <ul class="reflect">
+      <li>Como você estava quando começou?</li>
+      <li>O que percebeu sobre você — e sobre sua casa?</li>
+      <li>Algum hábito ou padrão passou a ser visto de outra maneira?</li>
+      <li>O que você deseja deixar para trás? O que deseja cultivar? O que deseja manter?</li>
+      <li>Como está sua relação com sua espiritualidade agora?</li>
+    </ul>
+
+    <p class="intro" style="margin-top:2rem">Cuidar da espiritualidade não é fazer uma limpeza e esquecer dela até o próximo problema — a constância já é parte da proteção. É muito mais fácil manter e renovar aquilo que está sendo cuidado do que precisar começar tudo do zero. Renove essa prática 1x ao mês, de preferência no fim do mês.</p>
+    <p class="callout">Não existe a obrigação de estar sempre bem. Existe o compromisso de perceber quando você precisa cuidar de si, do seu espaço e da sua espiritualidade. Cuide daquilo que você construiu — e lembre-se: começar do zero exige muito mais energia do que continuar.</p>
+
+    <div class="foot-note">
+      <strong>Alguma dúvida sobre a jornada?</strong> Me chama no WhatsApp da Esmeralda — estou aqui pra te acompanhar sempre que precisar.
+    </div>
+  </section>
+
+  <footer>
+    <svg width="20" height="20" viewBox="0 0 32 32" aria-hidden="true">
+      <circle cx="16" cy="16" r="12" fill="none" stroke="var(--gold-soft)" stroke-width="1"/>
+      <circle cx="16" cy="16" r="12" fill="var(--gold)"/>
+      <circle cx="10" cy="16" r="12" fill="var(--paper)"/>
+    </svg>
+    Com amor, para sua fé.
+  </footer>
+
+</div>
+</body>
+</html>
