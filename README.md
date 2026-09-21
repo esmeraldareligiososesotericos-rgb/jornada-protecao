@@ -15,7 +15,7 @@ Página da aula do Kit Jornada de Proteção (Loja Esmeralda). Um único arquivo
 Quando gravar a aula de verdade e subir no YouTube (não listado), abra o `index.html` num editor de texto, procure por:
 
 ```
-src="https://www.youtube-nocookie.com/embed/D3TUvhyHPxU"
+src="https://www.youtube-nocookie.com/embed/MReXCd6B84k"
 ```
 
 e troque `D3TUvhyHPxU` pelo ID do vídeo novo (o trecho depois de `v=` no link do YouTube). Troque também o link de "assistir no YouTube" logo abaixo, com o mesmo ID.
